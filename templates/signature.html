@@ -15,7 +15,7 @@
  % endif
   <img src="/static/img/sigs/dps.png" width="22" />
   <span class="sig_dps">${wave.total_dps}</span> DPS,
-<img src="/static/img/sigs/wreck.png" width="20" />
+  <img src="/static/img/sigs/wreck.png" width="20" />
   <span class="sig_isk">${wave.total_isk | dotted_number}</span> ISK
     <ul>
         % for sl in wave.sleepers:
@@ -41,6 +41,15 @@
         </li>
         % endfor
     </ul>
+	% if sig.sig_id == 38:  # Forgotten Core Information Pen
+		% if wave.wave_id == 2:
+			<div class="info_block_style">
+			<!-- В данной волне, тригером является контейнер релик сайта. После удачного или неудачного воздействия на случайный контейнер при помощи <img src=
+			"/static/img/sigs/relic_site.png" width="25px" alt="Relic Analizer"> <b style="color: #FFA600;">Relic Analizer</b>, появится 3 волна. -->
+			${tr.gettext('In this wave, the trigger is a container relic site. After a successful or unsuccessful exposure to a random container with the help of <img src="/static/img/sigs/relic_site.png" width="25px" alt="Relic Analizer"> <b style="color: #FFA600;">Relic Analizer</b>, 3 waves will appear.')}
+			</div>
+		% endif
+	% endif
 </%def>
 
 
@@ -74,6 +83,30 @@
             </li>
         % endfor
         </ul>
+
+		% if sig.sig_id > 32 and sig.sig_id < 49:
+		<div class="respawn-position-block">
+			<div class="respawn-position-tabs">
+			  <input type="radio" name="content" checked="checked" id="tab-1"/>
+				<label for="tab-1">${tr.gettext('Default NPC positions')}</label>
+			  <input type="radio" name="content" id="tab-2"/>
+				<label for="tab-2">${tr.gettext('Popular ships position')}</label>
+			  <input type="radio" name="content" id="tab-3"/>
+				<label for="tab-3">${tr.gettext('Options for equipping ships')}</label>
+				  <div>${tr.gettext('Positions of waves on anomalies.')} 
+				  <br>
+					<div class="center-block">
+						<a class="tab-thumbnail" href="#thumb">
+							<img class="img-npc-position" src="/static/img/site_wave_postion/thumb_${sig.sig_id}.jpg">
+							<span><img src="/static/img/site_wave_postion/${sig.sig_id}.jpg" /></span>
+						</a>
+					</div>
+				  </div>
+				  <div>${tr.gettext('Popular position of the ships. They are often used for ships with drones.')}</div>
+				  <div>${tr.gettext('Options for equipping ships.')}</div>
+			</div>
+		</div>
+		% endif
     </div>
     % endif
 
@@ -94,12 +127,12 @@
     % endif
 
     % if sig.sig_id == 36:  # Quarantine Area
-    ${tr.gettext('No triggers on this site, any sleeper kill can trigger next wave.')}<br /><br />
+    <div class="info_block_style">${tr.gettext('No triggers on this site, any sleeper kill can trigger next wave.')}<br /><br />
     <b>${tr.gettext('Recommendation:')}</b>
     <ol>
         <li>${tr.gettext('Destroy all sleeper battleships')} <img src="/static/img/sleepers/icons/battleship.png"></li>
         <li>${tr.gettext('Destory all other sleepers')}</li>
-    </ol>
+    </ol></div>
     % endif
 
     % for wave in sig.waves:

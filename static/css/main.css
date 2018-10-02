@@ -401,3 +401,76 @@ td.sleeper_info2 {
     font-size: 14px;
     color: #CCCCCC;
 }
+
+.respawn-position-block {
+	height: 300px;
+    width: 460px;
+}
+
+.respawn-position-tabs > div, .respawn-position-tabs  > input { display: none; }
+
+.respawn-position-tabs label {
+    padding: 5px;
+    border: 1px solid #509;
+    line-height: 28px;
+    cursor: pointer;
+    position: relative;
+    bottom: 1px;
+    background: #222;
+}
+
+.respawn-position-tabs input[type="radio"]:checked + label {
+    border-bottom: 2px solid #bc68ff;
+}
+
+.respawn-position-tabs > input:nth-of-type(1):checked ~ div:nth-of-type(1), 
+.respawn-position-tabs > input:nth-of-type(2):checked ~ div:nth-of-type(2), 
+.respawn-position-tabs > input:nth-of-type(3):checked ~ div:nth-of-type(3),
+.respawn-position-tabs > input:nth-of-type(4):checked ~ div:nth-of-type(4) {
+    display: block;
+    padding: 5px;
+    border: 1px solid #509;
+	background: #222;
+}
+
+.tab-thumbnail{
+	position: relative;
+	z-index: 0;
+}
+
+.tab-thumbnail:hover{
+	background-color: transparent;
+	z-index: 50;
+}
+
+.tab-thumbnail span{ /*CSS for enlarged image*/
+	position: absolute;
+	left: -1000px;
+	border: 1px solid #550099;
+	visibility: hidden;
+}
+
+.tab-thumbnail span img{ /*CSS for enlarged image*/
+	border-width: 0;
+	padding: 2px;
+}
+
+.tab-thumbnail:hover span{ /*CSS for enlarged image on hover*/
+	position: fixed;
+	visibility: visible;
+	top: 15%;
+	left: 30%; /*position where enlarged image should offset horizontally */
+}
+
+.img-npc-position {
+	width: 100%;
+}
+
+.info_block_style {
+    border: 1px solid #ec1818;
+    margin: 5px;
+    padding: 8px;
+    width: 400px;
+    background: #251111;
+    border-radius: 4px;
+}
