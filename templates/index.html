@@ -1,6 +1,6 @@
 ## -*- coding: utf-8 -*-
 <%include file="header.html"/>
-
+% if sitecfg.ZKB_KILLS_ON_PAGE > 0:
 <div class="solarsystem_info_wrapper">
 
   <blockquote id="zkb_block_container">
@@ -14,6 +14,7 @@
   </blockquote>
 
 </div>
+
 
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
@@ -29,6 +30,9 @@
       });
   });
 </script>
+% else:
+	<br><br><center><b>Welcome!</b></center>
+% endif
 
 <%include file="footer.html"/>
 ##% if sitecfg.DEBUG:

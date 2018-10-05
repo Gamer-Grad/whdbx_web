@@ -183,7 +183,7 @@ ${tr.gettext('Star')}: <span class="info_hl">${whsys.wh_star}</span><br />
 
 </div>
 <!-- solarsystem_info_wrapper -->
-
+% if sitecfg.ZKB_KILLS_ON_PAGE > 0:
 <blockquote id="zkb_block_container">
 ## removed, async AJAX loader will be used instead
 ##<%include file="zkb_block.html"/>
@@ -209,5 +209,5 @@ ${tr.gettext('Star')}: <span class="info_hl">${whsys.wh_star}</span><br />
       });
   });
 </script>
-
+% endif
 <%include file="footer.html"/>
