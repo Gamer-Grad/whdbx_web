@@ -14,3 +14,4 @@ db/eve.db.bz2
 templates/menu_main.html
 static/img/site_wave_postion/*.png
 static/img/site_wave_postion/*.pdn
+locales/ru/LC_MESSAGES/whdbx.mo
